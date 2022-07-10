@@ -13,19 +13,19 @@ class TableTile extends StatelessWidget {
               Flexible(
                 child: Text(
                   "$title  :      ",
-                  style: TextStyle(fontSize: 17,color: Colors.grey),
+                  style: const TextStyle(fontSize: 17,color: Colors.grey),
                 ),
               ),
 
               Flexible(
                 child: Text(
                  data,
-                  style: TextStyle(fontSize: 17),
+                  style: const TextStyle(fontSize: 17),
                 ),
               ),
             ]
         ),
-        SizedBox(
+        const SizedBox(
           child: Divider(
             thickness: 1,
           ),

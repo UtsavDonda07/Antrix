@@ -1,7 +1,5 @@
-import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:project/components/detail%20table.dart';
 import 'package:project/json_data/json_fatch_data.dart';
 
@@ -10,10 +8,8 @@ late String slug;
 class DetailScreen extends StatefulWidget {
   DetailScreen(String s) {
     slug = s;
-    print(slug);
   }
-  // const DetailScreen({Key? key}) : super(key: key);
-  //
+
   @override
   State<DetailScreen> createState() => _DetailScreenState();
 }
@@ -22,14 +18,14 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF8F8FF),
+      backgroundColor: const Color(0xffF8F8FF),
       body: FutureBuilder<List<String>>(
         future: DataFromAPI.getPhoneSpecification(slug),
         builder: (context, snapshot) {
           final details = snapshot.data;
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             default:
@@ -48,25 +44,24 @@ class _DetailScreenState extends State<DetailScreen> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Container(
               height: 30,
               child: Text(
                 "${details[0]} ${details[1]}",
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
               child: Divider(),
             ),
-            ClayContainer(
-              curveType: CurveType.convex,
+            Container(
               child: Image.network(details[2]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
               child: Divider(
                 color: Colors.blueGrey,
@@ -81,13 +76,13 @@ class _DetailScreenState extends State<DetailScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     "Size Name: ${details[7]}",
-                    style: TextStyle(fontSize: 18),
+                    style: const TextStyle(fontSize: 18),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    children: [
+                    children: const [
                       Text(
                         "Price: ₹",
                         style: TextStyle(fontSize: 15),
@@ -101,7 +96,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
               child: Divider(
                 color: Colors.blueGrey,
@@ -115,7 +110,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         "Details",
                         style: TextStyle(fontSize: 22),
@@ -124,53 +119,52 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         "Modal Name   :    ",
-                        style:
-                            const TextStyle(fontSize: 17, color: Colors.grey),
+                        style: TextStyle(fontSize: 17, color: Colors.grey),
                       ),
                       Text(
                         details[1],
-                        style: TextStyle(fontSize: 17),
+                        style: const TextStyle(fontSize: 17),
                       ),
                     ],
                   ),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         "Brand               :     ",
                         style: TextStyle(fontSize: 17, color: Colors.grey),
                       ),
                       Text(
                         details[0],
-                        style: TextStyle(fontSize: 17),
+                        style: const TextStyle(fontSize: 17),
                       ),
                     ],
                   ),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         "OS                    :     ",
                         style: TextStyle(fontSize: 17, color: Colors.grey),
                       ),
                       Flexible(
                         child: Text(
                           details[6],
-                          style: TextStyle(fontSize: 17),
+                          style: const TextStyle(fontSize: 17),
                         ),
                       ),
                     ],
                   ),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         "Colors              :     ",
                         style: TextStyle(fontSize: 17, color: Colors.grey),
                       ),
                       Flexible(
                           child: Text(
                         details[13],
-                        style: TextStyle(fontSize: 17),
+                        style: const TextStyle(fontSize: 17),
                       )),
                     ],
                   ),
@@ -184,29 +178,28 @@ class _DetailScreenState extends State<DetailScreen> {
                       Flexible(
                         child: Text(
                           details[14],
-                          style: TextStyle(fontSize: 17),
+                          style: const TextStyle(fontSize: 17),
                         ),
                       ),
                     ],
                   ),
                   Row(
                     children: [
-                      Flexible(
+                      const Flexible(
                           child: Text(
                         "Release Date  :  ",
-                        style:
-                            const TextStyle(fontSize: 17, color: Colors.grey),
+                        style: TextStyle(fontSize: 17, color: Colors.grey),
                       )),
                       Text(
                         details[4],
-                        style: TextStyle(fontSize: 17),
+                        style: const TextStyle(fontSize: 17),
                       ),
                     ],
                   ),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
               child: Divider(
                 color: Colors.blueGrey,
@@ -220,14 +213,13 @@ class _DetailScreenState extends State<DetailScreen> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         "Features & details",
                         style: TextStyle(fontSize: 22),
                       ),
                     ],
                   ),
-
                   TableTile(
                       title: "Rear Camera   ", data: details[8].toString()),
                   TableTile(
@@ -235,7 +227,6 @@ class _DetailScreenState extends State<DetailScreen> {
                   TableTile(
                       title: "Bettery             ",
                       data: details[10].toString()),
-
                   TableTile(
                       title: "Processor        ", data: details[11].toString()),
                   TableTile(
@@ -270,7 +261,6 @@ class _DetailScreenState extends State<DetailScreen> {
                   TableTile(
                       title: "USB                     ",
                       data: details[22].toString()),
-                  // TableTile(title:"charging",data:details[23].toString()),   //error given
                 ],
               ),
             ),

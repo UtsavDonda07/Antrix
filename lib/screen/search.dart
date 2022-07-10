@@ -10,14 +10,13 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  @override
   final controller = TextEditingController();
-  bool clear=false;
+  bool clear = false;
   String name = " ";
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF8F8FF),
+      backgroundColor: const Color(0xffF8F8FF),
       body: Container(
         child: Column(
           children: [
@@ -26,7 +25,7 @@ class _SearchState extends State<Search> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(
+                  const SizedBox(
                     height: 200,
                   ),
                   Flexible(
@@ -34,27 +33,25 @@ class _SearchState extends State<Search> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
-
                         controller: controller,
                         onChanged: (value) {
                           setState(() {});
                           name = value;
                         },
                         decoration: InputDecoration(
-                          suffixIcon: FlatButton(
+                          suffixIcon: MaterialButton(
                               onPressed: () {
-                                setState((){controller.clear();
-                                clear=true;
+                                setState(() {
+                                  controller.clear();
+                                  clear = true;
                                 });
-
                               },
-                              child: Icon(Icons.clear)
-                          ),
-                          prefixIcon: Icon(Icons.search),
+                              child: const Icon(Icons.clear)),
+                          prefixIcon: const Icon(Icons.search),
                           hintText: "Search",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(40),
-                            borderSide: BorderSide(color: Colors.black),
+                            borderSide: const BorderSide(color: Colors.black),
                           ),
                         ),
                       ),
@@ -72,7 +69,7 @@ class _SearchState extends State<Search> {
 
   Widget buildExpanded(String mobile) {
     if (mobile == " ") {
-      return Text("Enter Text");
+      return Expanded(child: Image.asset("assets/search.png"));
     } else {
       return Expanded(
         child: Container(
@@ -83,12 +80,12 @@ class _SearchState extends State<Search> {
               final phones = snapshot.data;
               switch (snapshot.connectionState) {
                 case ConnectionState.waiting:
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 default:
                   if (snapshot.hasError) {
-                    return Center(child: Text("Not Found"));
+                    return const Center(child: Text("Not Found"));
                   } else {
                     return buildPhones(phones!);
                   }
@@ -105,11 +102,10 @@ class _SearchState extends State<Search> {
       itemCount: phones.length,
       itemBuilder: (context, index) {
         final phone = phones[index];
-        if(clear==true){
-          clear=false;
-         return Text("not found");
-        }
-        else {
+        if (clear == true) {
+          clear = false;
+          return Expanded(child: Image.asset("assets/search.png"));
+        } else {
           return Padding(
             padding: const EdgeInsets.all(10.0),
             child: ListTile(

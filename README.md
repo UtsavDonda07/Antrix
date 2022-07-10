@@ -1,16 +1,9 @@
-Antrix
+mobile guru
 
 mobile specification mordern app
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+this is a app for find specification of mobile.
+in this app user can see all new up coming feature phone and see detail about all company old and new mobile.
+this app for android and also iso mobile.
+this app created by Utsav Donda.
+this app is made in india.

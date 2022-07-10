@@ -1,64 +1,50 @@
-import 'package:clay_containers/constants.dart';
-import 'package:clay_containers/widgets/clay_container.dart';
-import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
-
-import 'package:flutter/widgets.dart';
-import 'package:project/components/reusableCard.dart';
-import 'package:project/components/reusableCircle.dart';
 import 'package:project/json_data/json_fatch_data.dart';
 import 'package:project/screen/detail_screen.dart';
 
 late Future<List<Phones>> function;
 List<String> detail = [];
 class MobileListScreen extends StatefulWidget {
-  MobileListScreen(Future<List<Phones>> f) {
+  MobileListScreen(Future<List<Phones>> f, {Key? key}) : super(key: key) {
     function = f;
   }
-  // const MobileListScreen({Key? key}) : super(key: key);
 
   @override
   State<MobileListScreen> createState() => _MobileListScreenState();
 }
 
 class _MobileListScreenState extends State<MobileListScreen> {
-  static Future<List<String>> getPhoneSpec(phone) async {
+  // static Future<List<String>> getPhoneSpec(phone) async {
+  //
+  //   var jsonData = await fetch_data
+  //       .call_api("https://api-mobilespecs.azharimm.site/v2/" + phone);
+  //   var data = jsonData['data'];
+  //
+  //   detail.add(jsonData['data']['storage']); //0
+  //   detail.add(jsonData['data']['specifications'][11]['specs'][0]['val']
+  //   [0]); //1 battery
+  //   detail.add(jsonData['data']['specifications'][4]['specs'][1]['val']
+  //   [0]); //2 processor
+  //   detail.add(
+  //       jsonData['data']['specifications'][6]['specs'][0]['val'][0]); //3 camera
+  //   detail.add(jsonData['data']['specifications'][7]['specs'][0]['val']
+  //   [0]); //4 front camera
+  //
+  //
+  //   return detail;
+  // }
 
-    var jsonData = await fetch_data
-        .call_api("https://api-mobilespecs.azharimm.site/v2/" + phone);
-    var data = jsonData['data'];
-
-    detail.add(jsonData['data']['storage']); //0
-    detail.add(jsonData['data']['specifications'][11]['specs'][0]['val']
-    [0]); //1 battery
-    detail.add(jsonData['data']['specifications'][4]['specs'][1]['val']
-    [0]); //2 processor
-    detail.add(
-        jsonData['data']['specifications'][6]['specs'][0]['val'][0]); //3 camera
-    detail.add(jsonData['data']['specifications'][7]['specs'][0]['val']
-    [0]); //4 front camera
-
-
-    return detail;
-  }
-  @override
-  void initState() {
-
-    // TODO: implement initState
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF8F8FF),
+      backgroundColor: const Color(0xffF8F8FF),
       body: FutureBuilder<List<Phones>>(
         future: function,
         builder: (context, snapshot) {
           final phones = snapshot.data;
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             default:
@@ -78,12 +64,12 @@ class _MobileListScreenState extends State<MobileListScreen> {
         itemCount: phones.length,
         itemBuilder: (context, index) {
           final phone = phones[index];
-         getPhoneSpec(phone.slug);
+         // getPhoneSpec(phone.slug);
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              FlatButton(
+              MaterialButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -117,7 +103,7 @@ class _MobileListScreenState extends State<MobileListScreen> {
                           children: [
                             Text(
                               phone.name,
-                              style: TextStyle(fontSize: 14),
+                              style: const TextStyle(fontSize: 14),
                             ),
                             // Container(
                             //     // color: Colors.white,

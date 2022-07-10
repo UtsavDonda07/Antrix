@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project/screen/search.dart';
 import 'screen/home_screen.dart';
-import 'package:splash_screen_view/SplashScreenView.dart';
 
 void main() {
-  runApp(Main());
+  runApp(const Main());
 }
 
 class Main extends StatefulWidget {
@@ -16,19 +15,19 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int currentIndex = 0;
-  final screen = [HomeScreen(), Search()];
+  final screen = [const HomeScreen(), const Search()];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("mobile guru"),
+          title: const Text("mobile guru"),
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
           onTap: (index) => setState(() => currentIndex = index),
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',

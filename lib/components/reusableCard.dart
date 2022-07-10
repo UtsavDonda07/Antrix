@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/screen/detail_screen.dart';
-import 'package:clay_containers/clay_containers.dart';
+
 
 class ReusableCard extends StatelessWidget {
   String name;
@@ -15,7 +15,7 @@ class ReusableCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return MaterialButton(
       onPressed: () {
         Navigator.push(
           context,

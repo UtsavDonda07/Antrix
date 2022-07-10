@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF8F8FF),
+      backgroundColor: const Color(0xffF8F8FF),
       body: Container(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             builder: (context) => const BrandListScreen()),
                       );
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_forward_rounded,
                       color: Color(0xffc3c5f5),
                     ),
@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 MobileListScreen(DataFromAPI.getLatestPhone())),
                       );
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_forward_rounded,
                       color: Color(0xffc3c5f5),
                     ),
@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 DataFromAPI.getTopByInterest())),
                       );
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_forward_rounded,
                       color: Color(0xffc3c5f5),
                     ),
@@ -147,7 +147,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-
       ),
     );
   }

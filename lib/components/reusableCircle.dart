@@ -1,4 +1,3 @@
-import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
 import '../json_data/json_fatch_data.dart';
 import '../screen/mobile_list_screen.dart';
@@ -28,7 +27,7 @@ class ReusableCircle extends StatelessWidget {
           height: 80,
           width: 80,
           decoration: BoxDecoration(
-              color: Color(0xffc3c5f5), borderRadius: BorderRadius.circular(40)),
+              color: const Color(0xffc3c5f5), borderRadius: BorderRadius.circular(40)),
           child: Center(
               child: Text(
                 name,
