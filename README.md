@@ -1,6 +1,6 @@
-# project
+Antrix
 
-A new Flutter project.
+mobile specification mordern app
 
 ## Getting Started
 
