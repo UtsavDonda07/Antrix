@@ -6,7 +6,7 @@ import '../screen/mobile_list_screen.dart';
 class ReusableCircle extends StatelessWidget {
   final String name;
   final String slug;
-  ReusableCircle(this.name,this.slug);
+  ReusableCircle(this.name, this.slug);
 
   @override
   Widget build(BuildContext context) {
@@ -16,28 +16,27 @@ class ReusableCircle extends StatelessWidget {
         minWidth: 0,
         height: 0,
         padding: EdgeInsets.zero,
-        onPressed: (){
+        onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) =>  MobileListScreen(DataFromAPI.getPhonesData(slug))),
+            MaterialPageRoute(
+                builder: (context) =>
+                    MobileListScreen(DataFromAPI.getPhonesData(slug))),
           );
         },
-        child: ClayContainer(
-          // depth: 100,
-          color: Color(0xffd1e3bc),
-          curveType: CurveType.convex,
-          // spread: 40,
-          height: 90,
-          width: 85,
-          borderRadius: 50,
+        child: Container(
+          height: 80,
+          width: 80,
+          decoration: BoxDecoration(
+              color: Color(0xffc3c5f5), borderRadius: BorderRadius.circular(40)),
           child: Center(
               child: Text(
-            name,
-            style: const TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          )),
+                name,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              )),
         ),
       ),
     );

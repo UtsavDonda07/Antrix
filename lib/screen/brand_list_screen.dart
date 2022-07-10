@@ -26,7 +26,8 @@ class _BrandListScreenState extends State<BrandListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffdbe9f7),
+
+      backgroundColor: Color(0xffF8F8FF),
       body: FutureBuilder<List<Brands>>(
         future: DataFromAPI.getBrandData(),
         builder: (context, snapshot) {
@@ -48,50 +49,40 @@ class _BrandListScreenState extends State<BrandListScreen> {
     );
   }
 
-  Widget buildBrands(List<Brands> brands) => Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/background.jpg"),
-            fit: BoxFit.cover,
-          ),
+  Widget buildBrands(List<Brands> brands) => GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
         ),
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-          ),
-          scrollDirection: Axis.vertical,
-          itemCount: brands.length,
-          itemBuilder: (context, index) {
-            final brand = brands[index];
-            return FlatButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MobileListScreen(
-                            DataFromAPI.getPhonesData(brand.slug))),
-                  );
-                  //  navigate to new page
-                },
-                child: Center(
-                  child: ClayContainer(
-                    color: Color(0xffd1e3bc),
-                    curveType: CurveType.convex,
-                    // spread: 40,
-                    height: 90,
-                    width: 140,
-                    borderRadius: 50,
-                    child: Center(
-                        child: Text(
+        scrollDirection: Axis.vertical,
+        itemCount: brands.length,
+        itemBuilder: (context, index) {
+          final brand = brands[index];
+          return FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MobileListScreen(
+                          DataFromAPI.getPhonesData(brand.slug))),
+                );
+                //  navigate to new page
+              },
+              child: Center(
+                child: Container(
+                  height: 80,
+                  width: 80,
+                  decoration: BoxDecoration(
+                      color: Color(0xffc3c5f5), borderRadius: BorderRadius.circular(40)),
+                  child: Center(
+                      child: Text(
                       brand.name,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )),
-                  ),
-                ));
-          },
-        ),
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )),
+                ),
+              ));
+        },
       );
 }

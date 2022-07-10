@@ -22,9 +22,8 @@ class ReusableCard extends StatelessWidget {
           MaterialPageRoute(builder: (context) => DetailScreen(slug)),
         );
       },
-      child: ClayContainer(
-        color: Color(0xffe0f1ff).withOpacity(0.5),
-        curveType: CurveType.convex,
+      child: Container(
+        color: Colors.white54.withOpacity(0.5),
         height: 250,
         width: 200,
 
