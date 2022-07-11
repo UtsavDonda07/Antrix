@@ -60,20 +60,19 @@ class _BrandListScreenState extends State<BrandListScreen> {
                 //  navigate to new page
               },
               child: Center(
-                child: Container(
-                  height: 80,
-                  width: 80,
-                  decoration: BoxDecoration(
-                      color: const Color(0xffc3c5f5), borderRadius: BorderRadius.circular(40)),
-                  child: Center(
-                      child: Text(
+                child: CircleAvatar(
+                  radius: 40,
+                  backgroundColor: Color(0xff2196f3),
+                  child: Center(child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Text(
                       brand.name,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )),
-                ),
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  )),
+                )
               ));
         },
       );

@@ -17,52 +17,44 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffF8F8FF),
-      body: Container(
-        child: Column(
-          children: [
-            Flexible(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  const SizedBox(
-                    height: 200,
-                  ),
-                  Flexible(
-                    flex: 1,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        controller: controller,
-                        onChanged: (value) {
-                          setState(() {});
-                          name = value;
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              const SizedBox(
+                height: 100,
+              ),
+              Expanded(
+                child: TextField(
+                  controller: controller,
+                  onChanged: (value) {
+                    setState(() {});
+                    name = value;
+                  },
+                  decoration: InputDecoration(
+                    suffixIcon: MaterialButton(
+                        onPressed: () {
+                          setState(() {
+                            controller.clear();
+                            clear = true;
+                          });
                         },
-                        decoration: InputDecoration(
-                          suffixIcon: MaterialButton(
-                              onPressed: () {
-                                setState(() {
-                                  controller.clear();
-                                  clear = true;
-                                });
-                              },
-                              child: const Icon(Icons.clear)),
-                          prefixIcon: const Icon(Icons.search),
-                          hintText: "Search",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                            borderSide: const BorderSide(color: Colors.black),
-                          ),
-                        ),
-                      ),
+                        child: const Icon(Icons.clear)),
+                    prefixIcon: const Icon(Icons.search),
+                    hintText: "Search",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(40),
+                      borderSide: const BorderSide(color: Colors.black),
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
-            buildExpanded(name),
-          ],
-        ),
+            ],
+          ),
+          buildExpanded(name),
+        ],
       ),
     );
   }
@@ -73,7 +65,6 @@ class _SearchState extends State<Search> {
     } else {
       return Expanded(
         child: Container(
-          height: 2000,
           child: FutureBuilder<List<Phones>>(
             future: DataFromAPI.search(mobile),
             builder: (context, snapshot) {
@@ -104,7 +95,13 @@ class _SearchState extends State<Search> {
         final phone = phones[index];
         if (clear == true) {
           clear = false;
-          return Expanded(child: Image.asset("assets/search.png"));
+          return Center(
+              child: Expanded(
+                  child: Container(
+            color: const Color(0xffF8F8FF),
+            height: 1000,
+            width: 400,
+          )));
         } else {
           return Padding(
             padding: const EdgeInsets.all(10.0),

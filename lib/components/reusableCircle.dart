@@ -10,34 +10,49 @@ class ReusableCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: MaterialButton(
-        minWidth: 0,
-        height: 0,
-        padding: EdgeInsets.zero,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    MobileListScreen(DataFromAPI.getPhonesData(slug))),
-          );
-        },
-        child: Container(
-          height: 80,
-          width: 80,
-          decoration: BoxDecoration(
-              color: const Color(0xffc3c5f5), borderRadius: BorderRadius.circular(40)),
-          child: Center(
+      padding: const EdgeInsets.all(0.0),
+        child: MaterialButton(
+          // minWidth: 0,
+          // height: 0,
+           padding: EdgeInsets.zero,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      MobileListScreen(DataFromAPI.getPhonesData(slug))),
+            );
+          },
+          child: CircleAvatar(
+            radius: 40,
+            backgroundColor: Color(0xff2196f3),
+            child: Center(child: Padding(
+              padding: const EdgeInsets.all(4.0),
               child: Text(
                 name,
                 style: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+
                 ),
-              )),
+              ),
+            )),
+          ),
         ),
-      ),
+
     );
   }
 }
+// Container(
+// height: 80,
+// width: 80,
+// decoration: BoxDecoration(
+// borderRadius: BorderRadius.circular(40)),
+// child: Center(
+// child: Text(
+// name,
+// style: const TextStyle(
+// color: Colors.black,
+// fontWeight: FontWeight.bold,
+// ),
+// )),
+// ),

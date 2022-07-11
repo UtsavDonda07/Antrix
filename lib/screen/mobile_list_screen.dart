@@ -91,12 +91,13 @@ class _MobileListScreenState extends State<MobileListScreen> {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 10),
                               child:
-                                  Flexible(child: Image.network(phone.image)),
+                                  Flexible(flex:1,child: Image.network(phone.image)),
                             ),
                           ),
                         ],
                       ),
                       Flexible(
+                        flex: 1,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
