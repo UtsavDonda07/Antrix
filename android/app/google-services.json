@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "253633873277",
+    "project_id": "mobile-guru-c8002",
+    "storage_bucket": "mobile-guru-c8002.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253633873277:android:088948e3ef03457953b814",
+        "android_client_info": {
+          "package_name": "com.Utech.Mobile.Guru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253633873277-rfe5ed8bhp8abng68svoslt8q3kqvqva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSQl6uMwvk0HUAWn56-tYlIJDpZ2jy454"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253633873277-rfe5ed8bhp8abng68svoslt8q3kqvqva.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
